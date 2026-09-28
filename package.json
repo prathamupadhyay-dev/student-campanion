@@ -1,0 +1,14 @@
+{
+  "name": "student-companion",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm --workspace @student-companion/web run dev",
+    "build": "npm --workspace @student-companion/web run build",
+    "preview": "npm --workspace @student-companion/web run preview"
+  }
+}

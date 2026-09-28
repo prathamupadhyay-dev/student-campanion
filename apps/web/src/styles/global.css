@@ -1,0 +1,222 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background: var(--bg-page);
+  color: var(--ink-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--ink-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection {
+  background: rgba(236, 72, 153, 0.2);
+  color: #0f172a;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Layout Utilities */
+.page-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section-container {
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-spacing {
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 64px 0;
+  }
+}
+
+/* Section Header Primitives */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--aurora-magenta);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--ink-primary);
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  max-width: 580px;
+  color: var(--ink-secondary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Aurora Backdrop Containers */
+.hero-aurora-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 520px;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+.cta-aurora-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Dark Builder Section */
+.dark-builder-section {
+  background-color: var(--bg-dark-section);
+  color: var(--ink-dark-primary);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-builder-section .section-title {
+  color: #ffffff;
+}
+
+.dark-builder-section .section-subtitle {
+  color: var(--ink-dark-secondary);
+}
+
+/* Capability Cards */
+.capability-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s var(--ease-cinematic), box-shadow 0.3s var(--ease-cinematic), border-color 0.3s var(--ease-cinematic);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.capability-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  border-color: rgba(236, 72, 153, 0.25);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* macOS Sidebar Specific Styles */
+.traffic-light-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.7), 0 1px 2px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  padding: 0;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.traffic-light-btn:hover {
+  filter: brightness(0.88);
+  transform: scale(1.08);
+}
+
+.traffic-red {
+  background-color: #ff5f56;
+}
+
+.traffic-yellow {
+  background-color: #ffbd2e;
+}
+
+.traffic-green {
+  background-color: #27c93f;
+}
+
+.macos-icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.macos-sidebar-item:hover:not(.is-active) {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: var(--ink-primary) !important;
+}
+
+.macos-sidebar-settings-btn:hover {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: var(--ink-primary) !important;
+}
+
